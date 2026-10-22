@@ -1,0 +1,3 @@
+# Autenticación y recuperación
+
+`AuthController` publica `/auth/login`; responde `AuthResponseDto` con `token` y `user`. La seguridad incorpora `JwtService`, `JwtAuthenticationFilter`, `JwtAuthenticationEntryPoint`, `CustomUserDetailsService` y `CustomUserDetails`. `SecurityConfig` configura explícitamente `BCryptPasswordEncoder`, política de sesión `STATELESS` y deja públicos solo `POST /auth/login`, `POST /api/users`, `POST /auth/forgot-password` y `POST /auth/reset-password` (además de Swagger/error/preflight). `PasswordResetToken` y sus servicios gestionan recuperación. Nunca registre ni incluya tokens, hashes o credenciales en documentación/evidencias.
